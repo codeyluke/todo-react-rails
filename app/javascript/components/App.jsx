@@ -30,6 +30,7 @@ const Navigation = () => (
             </li>
             <li className="nav-item">
                 <NavLink exact to="/chores" className="nav-link">Chores</NavLink>
+                <NavLink exact to="/chores/new" className="nav-link">Add Chores</NavLink>
             </li>
         </ul>
     </nav>
@@ -39,6 +40,8 @@ const Main = () => (
     <Switch>
         <Route exact path="/" component={ Home } />
         <Route exact path="/chores" component={ ChoreList } />
+        <Route exact path="/chores/new" component={ ChoreAdd } />
+        <Route exact path="/chores/:id" component={ ChoreInfo } />
     </Switch>
 )
 
