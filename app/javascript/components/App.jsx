@@ -42,6 +42,7 @@ const Main = () => (
         <Route exact path="/chores" component={ ChoreList } />
         <Route exact path="/chores/new" component={ ChoreAdd } />
         <Route exact path="/chores/:id" component={ ChoreInfo } />
+        <Route exact path="/chores/:id/edit" component={ ChoreEdit } />
     </Switch>
 )
 
