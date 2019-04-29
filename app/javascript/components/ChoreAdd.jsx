@@ -10,7 +10,7 @@ class ChoreAdd extends Component {
             body: JSON.stringify(this.state),     
             headers: {'Content-Type': 'application/json' }
         })
-        .then(response => response.json())
+        .then(res => res.json())
         .then(data => {
             this.props.history.push(`/chores/${data.id}`);
         })

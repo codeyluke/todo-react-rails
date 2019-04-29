@@ -25,25 +25,24 @@ class ChoreEdit extends Component {
         e.preventDefault();
         fetch(`api/chores/${this.props.match.params.id}`, {
             method: 'PATCH',
-            body: JSON.stringify(this.state),
-            headers: {'Content-Type': 'application/json'}
-            
-        }).then(res => res.json())
-        console.log(res)
-        .then( data => {
-            console.log(data)
+            body: JSON.stringify(this.state),   
+            headers: { 'Content-Type': 'application/json' }
+          })
+          .then(res => res.json())
+          .then(data => {
             this.props.history.push(`/chores/${this.state.id}`);
-        }).catch(err => console.log('error', err))
-    }
+          })
+          .catch(error => console.log('error', error));
+      }
 
     render() { 
         console.log(this.state)
         return ( 
-            <div>
-                <h1>Edit Todo - {this.state.content}</h1>
-                <form>
+            <div className="mt-2">
+                <h3>Edit Todo</h3>
+                <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
-                        <input name="content" onChange={this.handleChange} type="text" className="form-control"/>
+                        <input name="content" placeholder={this.state.content} onChange={this.handleChange} type="text" className="form-control"/>
                     </div>
                     <div className="btn-group">
                         <button className="btn btn-dark" type="submit">Update</button>
@@ -51,7 +50,6 @@ class ChoreEdit extends Component {
                     </div>
                 </form>
             </div>
-
         );
     }
 }
